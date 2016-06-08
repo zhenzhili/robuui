@@ -8,9 +8,11 @@ function toggleLeftSidebar() {
     return {
         restrict: 'A',
         template: '<button ng-click="toggleLeft()" class="sidebar-toggle" id="toggle-left"><i class="fa fa-bars"></i></button>',
-        controller: function($scope, $element) {
+        controller: function($scope, $element,$window) {
             $scope.toggleLeft = function() {
-                ($(window).width() > 767) ? $('#main-wrapper').toggleClass('sidebar-mini'): $('#main-wrapper').toggleClass('sidebar-opened');
+                ($window.innerWidth > 767) ?
+                    angular.element(document.querySelector('#main-wrapper')).toggleClass('sidebar-mini'):
+                    angular.element(document.querySelector('#main-wrapper')).toggleClass('sidebar-opened');
             }
         }
     };
@@ -31,7 +33,59 @@ function toggleProfile() {
     };
 };
 
+/*
+ * @toggleRightSidebar - Right Sidebar Directive to toggle sidebar navigation
+ */
+function toggleRightSidebar() {
+    return {
+        restrict: 'A',
+        template: '<button ng-click="toggleRight()" class="sidebar-toggle" id="toggle-right"><i class="fa fa-indent"></i></button>',
+        controller: function($scope, $element) {
+            $scope.toggleRight = function() {
+                $('#sidebar-right').toggleClass("sidebar-right-open");
+                $("#toggle-right .fa").toggleClass("fa-indent fa-dedent");
+            }
+        }
+    };
+};
+
+/**
+ * @fullscreenMode - Directive for fullscreen browsers
+ */
+
+function fullscreenMode() {
+    return {
+        restrict: 'A',
+        template: '<button ng-click="toggleFullscreen()" type="button" class="btn btn-default expand" id="toggle-fullscreen"><i class="fa fa-expand"></i></button>',
+        controller: function($scope, $element) {
+            $scope.toggleFullscreen = function() {
+                $(document).toggleFullScreen();
+                $('#toggle-fullscreen .fa').toggleClass('fa-expand fa-compress');
+            }
+        }
+    };
+};
+
+/**
+ * @navToggleSub - Directive to toggle sub-menu down
+ */
+function navToggleSub() {
+    return {
+        restrict: 'A',
+        link: function(scope, element) {
+            angular.element(element).find('li > a').bind('click',function () {
+                alert(1);
+            })
+
+
+        }
+    };
+};
+
 angular
     .module('rbAdminAapp')
     .directive('toggleLeftSidebar', toggleLeftSidebar)
+    .directive('toggleRightSidebar', toggleRightSidebar)
+    .directive('fullscreenMode', fullscreenMode)
+    .directive('navToggleSub', navToggleSub)
     .directive('toggleProfile', toggleProfile);

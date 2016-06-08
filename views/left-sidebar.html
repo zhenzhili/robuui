@@ -312,7 +312,7 @@
             <label for="checkOne" class="control-label">Share your status</label>
         </div>
         <div class="col-xs-4">
-            <input type="checkbox" class="js-switch" ui-switch="{size: 'small', color:'#27B6AF',secondaryColor: '#B3B8C3'}" ng-model="checkOne" checked id="checkOne" />
+            <switch id="checkOne" name="enabled" ng-model="checkOne"></switch>
         </div>
     </div>
     <div class="row">
@@ -320,7 +320,7 @@
             <label for="checkTwo" class="control-label">Push Notifications</label>
         </div>
         <div class="col-xs-4">
-            <input type="checkbox" class="js-switch" ui-switch="{size: 'small',color:'#27B6AF',secondaryColor: '#B3B8C3'}" ng-model="checkTwo" id="checkTwo" />
+            <switch id="checkTwo" name="enabled" ng-model="checkTwo"></switch>
         </div>
     </div>
 </div>

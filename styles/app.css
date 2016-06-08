@@ -92,6 +92,44 @@ canvas {
 ul,li{
     list-style: none;
 }
+/*ui*/
+.btn:hover,
+.btn:focus {
+    outline: none;
+}
+.btn:active,
+.btn.active {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none!important;
+}
+.btn.disabled,
+.btn[disabled],
+.btn fieldset[disabled] .btn {
+    background-color: #909aa0;
+    color: rgba(255, 255, 255, 0.75);
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+}
+.switch{
+    height: 20px;
+    width: 33px;
+    border-color: #B3B8C3;
+    background-color:#B3B8C3;
+}
+.switch.checked{
+    border-color:#27B6AF;
+    background-color:#27B6AF;
+}
+.switch small{
+    height: 20px;
+    width: 20px;
+    background-color:#FFFFFF;
+}
+.switch.checked small{
+    left: 13px;
+}
 /*main-wrapper*/
 #main-wrapper {
     -webkit-transition: all 0.2s ease-in-out;
@@ -1043,6 +1081,103 @@ ul,li{
     #main-content .h1 {
         font-size: 22px;
     }
+}
+/*config*/
+div.config {
+    background: #F0F3F3;
+    width: 205px;
+    position: fixed;
+    top: 185px;
+    z-index: 1002;
+    border-radius: 0 0 0 5px;
+    right: -205px;
+}
+div.config div.config-swatch-wrap {
+    margin: 10px;
+    position: relative;
+}
+div.config h4 {
+    background-color: #1D212A;
+    color: #fff;
+    padding: 2px 0 5px 10px;
+    margin: 0;
+    line-height: 30px;
+    font-size: 13px;
+}
+div.config h4 a {
+    background-color: #1D212A;
+    display: block;
+    height: 37px;
+    position: absolute;
+    left: -40px;
+    top: 0;
+    width: 40px;
+    font-size: 17px;
+    line-height: 40px;
+    color: #FFF;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px 0 0 5px;
+}
+div.config h4 a i {
+    margin-right: 5px;
+}
+div.config h4 a:hover {
+    text-decoration: none;
+}
+.config-swatch-wrap .options {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.config-swatch-wrap .options li.title {
+    font-weight: 700;
+    font-size: 0.813em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    width: 100%;
+}
+.config-swatch-wrap .options li {
+    width: 100%;
+    padding: 5px 0;
+}
+.config-swatch-wrap .options .theme-style-wrapper {
+    height: 30px;
+    border: 1px solid #E0E0E0;
+}
+.config-swatch-wrap .options .theme-style-wrapper span.header {
+    width: 50%;
+    height: 10px;
+    float: left;
+}
+.config-swatch-wrap .options .theme-style-wrapper span.nav {
+    width: 50%;
+    height: 20px;
+    float: left;
+}
+.config-swatch-wrap .options .theme-style-wrapper .bg-white {
+    background: #fff;
+}
+.config-swatch-wrap .options .theme-style-wrapper .bg-dark {
+    background: #1D212A;
+}
+.config-swatch-wrap .options .theme-style-wrapper .bg-info {
+    background: #1f7bb6;
+}
+.config-swatch-wrap .options .theme-style-wrapper .bg-grey {
+    background: #909aa0;
+}
+.config-swatch-wrap .options .theme-style-wrapper .bg-red {
+    background: #e25d5d;
+}
+.config-swatch-wrap .options .theme-style-wrapper .bg-green {
+    background: #27b6af;
+}
+.config-swatch-wrap .options .theme-style-wrapper .bg-dark-blue {
+    background: #556b8d;
+}
+.config-swatch-wrap .options .theme-style-wrapper:hover {
+    cursor: pointer;
 }
 /*theme-default*/
 .theme-default #header {
