@@ -45,17 +45,17 @@
 <nav>
     <h5 class="sidebar-header">Navigation</h5>
     <!-- location directive.js | data-nav-toggle-sub maps to -->
-    <ul class="nav nav-pills nav-stacked" data-nav-toggle-sub>
+    <ul class="nav nav-pills nav-stacked">
         <li ui-sref-active="active">
             <a href="" ui-sref="index" title="Dashboard">
                 <i class="fa fa-fw fa-tachometer"></i> Dashboard
             </a>
         </li>
         <li class="nav-dropdown" ng-class="{active: $state.includes('ui')}">
-            <a href="" title="UI Elements">
+            <a href="" title="UI Elements" data-nav-toggle-sub>
                 <i class="fa  fa-fw fa-cogs"></i> UI Elements
             </a>
-            <ul class="nav-sub" ng-class="{in: $state.includes('ui')}">
+            <ul class="nav-sub">
                 <li ui-sref-active="active">
                     <a href="" ui-sref="ui.buttons" title="Buttons">Buttons
                     </a>

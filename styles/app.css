@@ -419,6 +419,9 @@ ul,li{
     padding: 8px 0 8px 10px;
     display: block;
 }
+.sidebar .nav li.open > .nav-sub{
+    display: block;
+}
 .sidebar .nav > li > .nav-sub > li > a {
     padding-left: 45px;
 }

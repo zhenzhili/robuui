@@ -73,9 +73,10 @@ function navToggleSub() {
     return {
         restrict: 'A',
         link: function(scope, element) {
-            angular.element(element).find('li > a').bind('click',function () {
-                alert(1);
-            })
+            element.bind('click',function () {
+                element.parent().toggleClass('open');
+                element.next().toggleClass('in');
+            });
 
 
         }
