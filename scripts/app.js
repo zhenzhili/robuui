@@ -18,4 +18,11 @@ angular
                     pageTitle: 'index'
                 }
             })
-    }]);
+    }]).controller('leftSideBarCtrl', function($scope) {
+        $scope.menuArray =[
+            {"title":"Dashboard","sref":"index"},
+            {"title":"UI Elements","subMenu":[
+                {"title":"Buttons","sref":"ui.buttons"}
+            ]}
+        ];
+    });

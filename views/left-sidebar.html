@@ -42,10 +42,14 @@
         </ul>
     </div>
 </div>
-<nav>
+<nav ng-controller="leftSideBarCtrl">
     <h5 class="sidebar-header">Navigation</h5>
     <!-- location directive.js | data-nav-toggle-sub maps to -->
     <ul class="nav nav-pills nav-stacked">
+        <li ng-repeat="menu in ">
+
+        </li>
+
         <li ui-sref-active="active">
             <a href="" ui-sref="index" title="Dashboard">
                 <i class="fa fa-fw fa-tachometer"></i> Dashboard
