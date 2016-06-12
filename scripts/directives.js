@@ -75,7 +75,6 @@ function navToggleSub() {
         link: function(scope, element) {
             element.bind('click',function () {
                 element.parent().toggleClass('open');
-                element.next().toggleClass('in');
             });
 
 
