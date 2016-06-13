@@ -1,0 +1,7 @@
+<a href="" title="{{item.title}}">
+    <i class="fa  {{item.iconCls}}"></i> {{item.title}}
+</a>
+<ul ng-if="isMenuItem(item)" class="nav-sub" ng-show="item.$$isExpend">
+    <li ng-repeat="item in item.subMenu" ng-class="{active: $state.includes(item.parentState)}" ng-include="'views/menu-item.html'">
+    </li>
+</ul>

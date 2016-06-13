@@ -18,11 +18,16 @@ angular
                     pageTitle: 'index'
                 }
             })
-    }]).controller('leftSideBarCtrl', function($scope) {
+    }])
+    .controller('leftSideBarCtrl', function($scope) {
         $scope.menuArray =[
-            {"title":"Dashboard","sref":"index"},
-            {"title":"UI Elements","subMenu":[
+            {"title":"Dashboard","sref":"index","iconCls":"fa-tachometer"},
+            {"title":"UI Elements","iconCls":"fa-cogs","parentState":"ui","subMenu":[
                 {"title":"Buttons","sref":"ui.buttons"}
             ]}
         ];
+
+        $scope.isMenuItem=function (item) {
+            return item.subMenu&&item.subMenu.length>0;
+        };
     });
