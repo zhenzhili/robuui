@@ -92,6 +92,10 @@ canvas {
 ul,li{
     list-style: none;
 }
+.slide-toggle {
+    overflow: hidden;
+    transition: .3s all linear;
+}
 /*ui*/
 .btn:hover,
 .btn:focus {
@@ -411,7 +415,6 @@ ul,li{
 .sidebar .nav .nav-sub {
     list-style: none;
     padding: 0;
-    display: none;
 }
 .sidebar .nav .nav-sub li > a {
     padding-right: 10px;

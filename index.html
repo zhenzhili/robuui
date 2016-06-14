@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
     <link rel="stylesheet" href="bower_components/angular-ui-switch/angular-ui-switch.css" />
-    <link rel="stylesheet" href="bower_components/v-accordion/dist/v-accordion.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -19,11 +18,11 @@
 </head>
 <body>
     <!-- Page Wrapper-->
-    <section id="main-wrapper" class="theme-default">
+    <section id="main-wrapper" class="theme-default" ng-class="{'sidebar-mini':slideToggle}">
         <!-- Page wrapper -->
         <header id="header" ng-include="'views/header.html'"></header>
         <!-- Left Sidebar Navigation -->
-        <aside class="sidebar sidebar-left" ng-include="'views/left-sidebar.html'"></aside>
+        <aside class="sidebar sidebar-left" ng-controller="leftSideBarCtrl" ng-include="'views/left-sidebar.html'"></aside>
         <!-- Content wraper -->
         <section class="main-content-wrapper">
             <!-- Main content view  -->
@@ -44,13 +43,16 @@
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
     <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/angular-ui-switch/angular-ui-switch.js"></script>
+    <script src="bower_components/angular-fullscreen/src/angular-fullscreen.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js /scripts/scripts.js -->
     <script src="scripts/app.js"></script>
+    <script src="scripts/animate.js"></script>
     <script src="scripts/directives.js"></script>
     <!-- endbuild -->
 </body>

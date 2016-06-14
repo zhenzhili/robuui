@@ -1,37 +1,6 @@
 /**
  * Created by lizhenzhi on 2016/6/7.
  */
-/*
- * @toggleLeftSidebar - Left Sidebar Directive to toggle sidebar navigation
- */
-function toggleLeftSidebar() {
-    return {
-        restrict: 'A',
-        template: '<button ng-click="toggleLeft()" class="sidebar-toggle" id="toggle-left"><i class="fa fa-bars"></i></button>',
-        controller: function($scope, $element,$window) {
-            $scope.toggleLeft = function() {
-                ($window.innerWidth > 767) ?
-                    angular.element(document.querySelector('#main-wrapper')).toggleClass('sidebar-mini'):
-                    angular.element(document.querySelector('#main-wrapper')).toggleClass('sidebar-opened');
-            }
-        }
-    };
-}
-
-/*
- * @toggleProfile - Show/Hide Profile View
- */
-function toggleProfile() {
-    return {
-        restrict: 'A',
-        template: '<button ng-click="toggleProfile()" type="button" class="btn btn-default" id="toggle-profile"><i class="fa fa-user"></i></button>',
-        controller: function($scope, $element) {
-            $scope.toggleProfile = function() {
-                $('.sidebar-profile').slideToggle();
-            }
-        }
-    };
-};
 
 /*
  * @toggleRightSidebar - Right Sidebar Directive to toggle sidebar navigation
@@ -56,36 +25,22 @@ function toggleRightSidebar() {
 function fullscreenMode() {
     return {
         restrict: 'A',
-        template: '<button ng-click="toggleFullscreen()" type="button" class="btn btn-default expand" id="toggle-fullscreen"><i class="fa fa-expand"></i></button>',
-        controller: function($scope, $element) {
+        template: '<button ng-click="toggleFullscreen()" type="button" class="btn btn-default expand" id="toggle-fullscreen"><i class="fa" ng-class="{\'fa-expand\':!$parent.$root.isFullscreen,\'fa-compress\':$parent.$root.isFullscreen}"></i></button>',
+        controller: function($scope, $element,Fullscreen) {
             $scope.toggleFullscreen = function() {
-                $(document).toggleFullScreen();
-                $('#toggle-fullscreen .fa').toggleClass('fa-expand fa-compress');
+                if (Fullscreen.isEnabled()){
+                    Fullscreen.cancel();
+                }
+                else{
+                    Fullscreen.all();
+                }
+                $scope.$parent.$root.isFullscreen=!$scope.$parent.$root.isFullscreen;
             }
-        }
-    };
-};
-
-/**
- * @navToggleSub - Directive to toggle sub-menu down
- */
-function navToggleSub() {
-    return {
-        restrict: 'A',
-        link: function(scope, element) {
-            element.bind('click',function () {
-                element.parent().toggleClass('open');
-            });
-
-
         }
     };
 };
 
 angular
     .module('rbAdminAapp')
-    .directive('toggleLeftSidebar', toggleLeftSidebar)
     .directive('toggleRightSidebar', toggleRightSidebar)
-    .directive('fullscreenMode', fullscreenMode)
-    .directive('navToggleSub', navToggleSub)
-    .directive('toggleProfile', toggleProfile);
+    .directive('fullscreenMode', fullscreenMode);

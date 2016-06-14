@@ -1,4 +1,4 @@
-<div class="sidebar-profile">
+<div class="slide-toggle sidebar-profile" ng-show="$parent.profileSlideToggle">
     <div class="avatar">
         <img class="img-circle profile-image" src="images/profile.png">
         <i class="on border-dark animated bounceIn"></i>
@@ -42,12 +42,12 @@
         </ul>
     </div>
 </div>
-<nav ng-controller="leftSideBarCtrl">
+<nav>
     <h5 class="sidebar-header">Navigation</h5>
     <!-- location directive.js | data-nav-toggle-sub maps to -->
     <ul class="nav nav-pills nav-stacked">
-        <li ng-repeat="item in menuArray" ng-if="isMenuItem(item)" ui-sref-active="active" ng-include="'views/menu-item.html'"></li>
-        <li ng-repeat="item in menuArray" ng-if="!isMenuItem(item)" class="nav-dropdown"
+        <li ng-repeat="item in menuArray" ng-if="!hasSubMenu(item)" ui-sref-active="active" ng-include="'views/menu-item.html'"></li>
+        <li ng-repeat="item in menuArray" ng-if="hasSubMenu(item)" class="nav-dropdown"
             ng-class="{active: $state.includes(item.parentState),open:item.$$isExpend}" ng-include="'views/menu-item.html'"></li>
     </ul>
 </nav>
