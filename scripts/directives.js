@@ -42,5 +42,4 @@ function fullscreenMode() {
 
 angular
     .module('rbAdminAapp')
-    .directive('toggleRightSidebar', toggleRightSidebar)
     .directive('fullscreenMode', fullscreenMode);
