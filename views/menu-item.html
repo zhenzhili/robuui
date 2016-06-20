@@ -4,7 +4,7 @@
 <a ng-if="hasSubMenu(item)" ng-click="itemExpended(item, $event);" href="javascript:" title="{{item.title}}">
     <i ng-if="item.iconCls" class="fa fa-fw {{item.iconCls}}"></i> {{item.title}}
 </a>
-<ul ng-if="hasSubMenu(item)" class="slide-toggle nav-sub" ng-show="item.$$isExpend">
+<ul ng-if="hasSubMenu(item)" class="nav-sub" ng-hide="!item.$$isExpend">
     <li ng-repeat="item in item.subMenu" ng-if="!hasSubMenu(item)" ui-sref-active="active" ng-include="'views/menu-item.html'"></li>
     <li ng-repeat="item in item.subMenu" ng-if="hasSubMenu(item)" class="nav-dropdown"
         ng-class="{active: $state.includes(item.parentState),open:item.$$isExpend}" ng-include="'views/menu-item.html'"></li>

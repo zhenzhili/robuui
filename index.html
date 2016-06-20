@@ -2,6 +2,7 @@
 <html lang="en" ng-app="rbAdminAapp" >
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <!-- build:css /styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap-css-only/css/bootstrap.css" />
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
     <link rel="stylesheet" href="bower_components/angular-ui-switch/angular-ui-switch.css" />
     <link rel="stylesheet" href="bower_components/animate.css/animate.css" />
+    <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -19,7 +21,7 @@
 </head>
 <body>
     <!-- Page Wrapper-->
-    <section id="main-wrapper" class="theme-default" ng-class="{'sidebar-mini':slideToggle}">
+    <section id="main-wrapper" class="{{theme?theme:'theme-default'}}" ng-class="{'sidebar-mini':slideToggle}">
         <!-- Page wrapper -->
         <header id="header" ng-include="'views/header.html'"></header>
         <!-- Left Sidebar Navigation -->
@@ -35,12 +37,14 @@
     </section>
     <!-- /Page wrapper-->
     <!-- Right Sidebar Navigation -->
-    <aside ng-include="'views/right-sidebar.html'" id="sidebar-right"></aside>
+    <aside ng-include="'views/right-sidebar.html'" id="sidebar-right" ng-class="{'sidebar-right-open':slideRightToggle}"></aside>
     <!--Config demo-->
-    <div id="config" class="config hidden-xs"  ng-include="'views/demo-settings.html'"></div>
+    <div id="config" class="config hidden-xs" ng-class="{'open':settingToggle}"  ng-include="'views/demo-settings.html'"></div>
     <!-- build:js /scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/Chart.js/Chart.js"></script>
+    <script src="bower_components/d3/d3.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
     <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
@@ -48,13 +52,13 @@
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/angular-ui-switch/angular-ui-switch.js"></script>
     <script src="bower_components/angular-fullscreen/src/angular-fullscreen.js"></script>
+    <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
+    <script src="bower_components/ngRadialGauge/src/ng-radial-gauge-dir.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js /scripts/scripts.js -->
     <script src="scripts/app.js"></script>
-    <script src="scripts/animate.js"></script>
-    <script src="scripts/directives.js"></script>
     <!-- endbuild -->
 </body>
 </html>

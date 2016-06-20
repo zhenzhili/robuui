@@ -8,6 +8,9 @@
     <li class="toggle-navigation toggle-left">
         <button ng-click="$parent.slideToggle=!$parent.slideToggle" class="sidebar-toggle" id="toggle-left"><i class="fa fa-bars"></i></button>
     </li>
+    <li class="toggle-profile hidden-xs">
+        <button ng-click="$parent.profileSlideToggle=!$parent.profileSlideToggle" type="button" class="btn btn-default" id="toggle-profile"><i class="fa fa-user"></i></button>
+    </li>
     <li class="hidden-xs hidden-sm">
         <input type="text" class="search" placeholder="Search project...">
         <button type="submit" class="btn btn-sm btn-search"><i class="fa fa-search"></i>
@@ -19,7 +22,7 @@
         <a href="javascript:void(0);" id="dropdown-profile-link" class="dropdown-toggle" uib-dropdown-toggle>
             <span class="meta">
                 <span class="avatar">
-                    <img src="images/profile.png" class="img-circle" alt="">
+                    <img src="images/profile.jpg" class="img-circle" alt="">
                 </span>
                 <span class="text">Mike Adams</span>
                 <span class="caret"></span>
@@ -67,6 +70,8 @@
         </button>
     </li>
     <li class="toggle-navigation toggle-right">
-        <button class="sidebar-toggle" id="toggle-right"><i class="fa fa-indent"></i></button>
+        <button ng-click="$parent.slideRightToggle=!$parent.slideRightToggle" class="sidebar-toggle" id="toggle-right">
+            <i class="fa" ng-class="{'fa-indent':!$parent.slideRightToggle,'fa-dedent':$parent.slideRightToggle}"></i>
+        </button>
     </li>
 </ul>

@@ -1,3 +1,47 @@
+<div class="sidebar-profile" ng-hide="!$parent.profileSlideToggle">
+    <div class="avatar">
+        <img class="img-circle profile-image" src="images/profile.jpg">
+        <i class="on border-dark animated bounceIn"></i>
+    </div>
+    <div uib-dropdown class="profile-body dropdown">
+        <a id="dropdown-head-profile-link" href="javascript:void(0);" class="dropdown-toggle" uib-dropdown-toggle><h4>Mike Adams <span class="caret"></span></h4></a>
+        <small class="title">Front-end Developer</small>
+        <ul class="dropdown-menu animated fadeInRight" role="menu" uib-dropdown-menu aria-labelledby="dropdown-head-profile-link">
+            <li class="profile-progress">
+                <h5>
+                    <span>80%</span>
+                    <small>Profile complete</small>
+                </h5>
+                <div class="progress progress-xs">
+                    <div class="progress-bar progress-bar-primary" style="width: 80%">
+                    </div>
+                </div>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href="javascript:void(0);">
+                    <span class="icon"><i class="fa fa-user"></i>
+                                </span>My Account</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">
+                    <span class="icon"><i class="fa fa-envelope"></i>
+                                </span>Messages</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">
+                    <span class="icon"><i class="fa fa-cog"></i>
+                                </span>Settings</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href="javascript:void(0);">
+                    <span class="icon"><i class="fa fa-sign-out"></i>
+                    </span>Logout</a>
+            </li>
+        </ul>
+    </div>
+</div>
 <nav>
     <h5 class="sidebar-header">Navigation</h5>
     <!-- location directive.js | data-nav-toggle-sub maps to -->
