@@ -29,6 +29,6 @@
     "animate.css": "^3.5.2",
     "angular-chart.js": "^0.10.2",
     "ngRadialGauge": "*",
-    "angular-nvd3": "^1.0.7"
+    "angular-skycons": "^2.0.2"
   }
 }
